@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "sample-gcp-pyspark"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pyspark = "^3.5.3"
+google-cloud-bigquery = "^3.27.0"
+google-cloud-storage = "^2.18.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
