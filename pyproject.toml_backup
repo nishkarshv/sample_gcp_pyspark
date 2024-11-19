@@ -1,16 +1,20 @@
 [tool.poetry]
 name = "sample-gcp-pyspark"
 version = "0.1.0"
-description = "This is demo"
-authors = ["nishkarsh"]
+description = ""
+authors = ["Your Name <you@example.com>"]
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.9"
 pyspark = "^3.5.3"
 google-cloud-bigquery = "^3.27.0"
 google-cloud-storage = "^2.18.2"
+ruff = "^0.7.4"
 google-cloud-pubsub = "^2.27.1"
+flake8 = "^7.1.1"
+black = "^24.10.0"
 
 
 [build-system]
