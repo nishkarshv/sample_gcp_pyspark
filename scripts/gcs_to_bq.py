@@ -6,9 +6,13 @@ spark = (
     SparkSession.builder.appName("GCS to BigQuery")
     .config(
         "spark.jars",
-        "gs://spark-lib/bigquery/spark-bigquery-with-dependencies_2.12-0.41.0.jar",
+        "gs://spark-lib/bigquery/ \
+            spark-bigquery-with-dependencies_2.12-0.41.0.jar",
     )
-    .config("spark.sql.catalog.bigquery", "com.google.cloud.spark.bigquery.v2.BigQueryCatalog")
+    .config(
+        "spark.sql.catalog.bigquery",
+        "com.google.cloud.spark.bigquery.v2.BigQueryCatalog",
+    )
     .config("spark.sql.catalog.bigquery.auth.service.account.enable", "true")
     .getOrCreate()
 )
@@ -31,9 +35,9 @@ try:
     df.show()
 
     # Write the DataFrame to BigQuery
-    df.write.format("bigquery").option(
-        "temporaryGcsBucket", temporary_gcs_bucket
-    ).mode("overwrite").save(bq_table)
+    df.write.format("bigquery").option("temporaryGcsBucket", temporary_gcs_bucket).mode(
+        "overwrite"
+    ).save(bq_table)
 
     print("Data successfully written to BigQuery!")
 
